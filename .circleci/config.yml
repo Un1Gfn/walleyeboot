@@ -17,16 +17,23 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Stop for SSH
+          name: Download and extract boot.img
           command: |
-            false
+            apt update
+            apt install -y wget
+            apt install -y unzip
+            wget -O walleye.zip https://dl.google.com/dl/android/aosp/walleye-qp1a.191005.007.a1-factory-78ad96e7.zip
+            unzip walleye.zip
+            cd walleye-*/
+            unzip image-walleye-*.zip boot.img
+            mv boot.img ~/code/
       # - run:
-      #     name: Align & sign APK
+      #     name: Stop for SSH
       #     command: |
-      #       true
-      # - store_artifacts:
-      #     path: mobile/build/outputs/apk/release/
-      #     destination: mobile
+      #       false
+      - store_artifacts:
+          path: boot.img
+          destination: boot
       # - store_artifacts:
       #     path: tv/build/outputs/apk/release/
       #     destination: tv
