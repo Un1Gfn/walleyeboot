@@ -33,7 +33,7 @@ jobs:
       #       false
       - store_artifacts:
           path: boot.img
-          destination: boot
+          destination: boot.img
       # - store_artifacts:
       #     path: tv/build/outputs/apk/release/
       #     destination: tv
