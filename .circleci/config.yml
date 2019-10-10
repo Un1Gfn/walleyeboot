@@ -11,7 +11,8 @@ jobs:
       # https://circleci.com/docs/2.0/circleci-images/
       # https://github.com/CircleCI-Public/circleci-dockerfiles/tree/master/android/images
       # https://en.wikipedia.org/wiki/Debian_version_history
-      # - image: circleci/android:api-28-ndk
+      # - image: debian:stretch
+      - image: ubuntu:disco
     resource_class: medium
     steps:
       - checkout
